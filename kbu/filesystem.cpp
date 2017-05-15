@@ -25,9 +25,9 @@ directory_entry::operator const kbu::filesystem::path & () const
     return _path;
 }
 
-const path & directory_entry::path() const
+const kbu::filesystem::path & directory_entry::path() const
 {
-    return _path;
+     return _path;
 }
 
 std::vector<directory_entry> kbu::filesystem::directory_iterator(const path &path)

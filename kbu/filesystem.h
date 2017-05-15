@@ -22,12 +22,12 @@ class path
 
 class directory_entry
 {
-    path _path;
+    kbu::filesystem::path _path;
 
   public:
     directory_entry(const kbu::filesystem::path &p);
     operator const kbu::filesystem::path &() const;
-    const kbu::filesystem::path & path() const;
+    const kbu::filesystem::path &path() const;
 };
 
 std::vector<kbu::filesystem::directory_entry> directory_iterator(const kbu::filesystem::path &path);
