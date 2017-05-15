@@ -1,4 +1,5 @@
 #include "filesystem.h"
+#include <sys/stat.h>
 
 using namespace kbu::filesystem;
 
@@ -13,7 +14,7 @@ path path::extension() const
 
 std::string path::string() const
 {
-    return std::string();
+    return _path;
 }
 
 directory_entry::directory_entry(const kbu::filesystem::path &p) : _path(p)
@@ -38,5 +39,8 @@ std::vector<directory_entry> kbu::filesystem::directory_iterator(const path &pat
 
 bool kbu::filesystem::is_directory(const path &path)
 {
-    return false;
+    struct stat st = {};
+    if (stat(path.string().c_str(), &st))
+        return false;
+    return st.st_mode & S_IFDIR;
 }
