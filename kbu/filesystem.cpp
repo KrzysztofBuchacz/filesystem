@@ -20,7 +20,7 @@ directory_entry::directory_entry(const kbu::filesystem::path &p) : _path(p)
 {
 }
 
-directory_entry::operator const filesystem::path & () const
+directory_entry::operator const kbu::filesystem::path & () const
 {
     return _path;
 }
