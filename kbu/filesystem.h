@@ -20,6 +20,8 @@ class path
     std::string string() const;
 };
 
+path operator/(const path& lhs, const path& rhs);
+
 class directory_entry
 {
     kbu::filesystem::path _path;
@@ -30,7 +32,7 @@ class directory_entry
     const kbu::filesystem::path &path() const;
 };
 
-std::vector<kbu::filesystem::directory_entry> directory_iterator(const kbu::filesystem::path &path);
+std::vector<kbu::filesystem::directory_entry> directory_iterator(const kbu::filesystem::path& dir);
 
 bool is_directory(const kbu::filesystem::path &path);
 
