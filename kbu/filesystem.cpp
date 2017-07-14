@@ -77,10 +77,10 @@ std::vector<directory_entry> kbu::filesystem::directory_iterator(const path &dir
         ::FindClose(hFile);
     }
 #else
-    DIR *dir = opendir(path.string().c_str());
-    if (dir)
+    DIR *pdir = opendir(dir.string().c_str());
+    if (pdir)
     {
-        if (struct dirent *entry = readdir(dir))
+        if (struct dirent *entry = readdir(pdir))
         {
             do
             {
@@ -88,9 +88,9 @@ std::vector<directory_entry> kbu::filesystem::directory_iterator(const path &dir
                     continue;
                 kbu::filesystem::path p = dir / path(entry->d_name);
                 ret.push_back(p);
-            } while ((entry = readdir(dir)) != nullptr);
+            } while ((entry = readdir(pdir)) != nullptr);
         }
-        closedir(dir);
+        closedir(pdir);
     }
 #endif
     return ret;

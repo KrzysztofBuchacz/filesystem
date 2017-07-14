@@ -4,7 +4,7 @@ set(MODULE_NAME filesystem)
 project(${MODULE_NAME})
 
 if(UNIX)
-	add_definitions(-std=c++11)
+    add_definitions(-std=c++11)
 endif(UNIX)
 
 add_library(${MODULE_NAME} STATIC kbu/filesystem.h kbu/filesystem.cpp)
