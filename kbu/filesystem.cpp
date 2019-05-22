@@ -1,4 +1,5 @@
 #include "filesystem.h"
+
 #include <string.h>
 #ifdef _WIN32
 const char sep[] = "\\";
