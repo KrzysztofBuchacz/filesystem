@@ -19,11 +19,14 @@ path::path(const std::string &p) : _path(p)
 
 path path::extension() const
 {
-    size_t s = _path.rfind(sep);
     size_t d = _path.rfind(".");
-    if (d > s)
-        return _path.substr(d);
-    return path(string());
+    if (d != std::string::npos)
+    {
+        size_t s = _path.rfind(sep);
+        if (d > s)
+            return _path.substr(d);
+    }
+    return path(std::string());
 }
 
 std::string path::string() const
